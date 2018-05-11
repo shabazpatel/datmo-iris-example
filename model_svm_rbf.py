@@ -3,6 +3,8 @@ import json
 import pickle
 import numpy as np
 
+import datmo
+
 from sklearn import datasets
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
@@ -62,3 +64,5 @@ plt.ylabel('petal width [standardized]')
 plt.legend(loc='upper left')
 plt.tight_layout()
 plt.savefig('plot.png', dpi=300)
+
+datmo.snapshot.create(message="svm with rbf", config=config, stats=stats)

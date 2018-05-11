@@ -3,6 +3,8 @@ import json
 import pickle
 import numpy as np
 
+import datmo
+
 from sklearn import datasets
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
@@ -16,7 +18,6 @@ from sklearn.linear_model import Perceptron
 iris = datasets.load_iris()
 X = iris.data[:, [2, 3]]
 y = iris.target
-print('Class labels:', np.unique(y))
 
 # Splitting data into 70% training and 30% test data:
 X_train, X_test, y_train, y_test = train_test_split(
@@ -65,3 +66,5 @@ plt.legend(loc='upper left')
 
 plt.tight_layout()
 plt.savefig('plot.png', dpi=300)
+
+#datmo.snapshot.create(message="perceptron", config=config, stats=stats)
