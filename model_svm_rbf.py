@@ -1,5 +1,4 @@
 import os
-import json
 import pickle
 import numpy as np
 
@@ -44,14 +43,6 @@ print(stats)
 # saving model file
 model_filename = os.path.join('model.pkl')
 pickle.dump(svm, open(model_filename, 'wb'))
-
-# saving config file
-with open('config.json', 'w') as f:
-    f.write(json.dumps(config))
-
-# saving stats file
-with open('stats.json', 'w') as f:
-    f.write(json.dumps(stats))
 
 # saving plot
 X_combined_std = np.vstack((X_train_std, X_test_std))

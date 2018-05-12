@@ -1,5 +1,4 @@
 import os
-import json
 import pickle
 import numpy as np
 
@@ -45,14 +44,6 @@ print(stats)
 model_filename = os.path.join('model.pkl')
 pickle.dump(svm, open(model_filename, 'wb'))
 
-# saving config file
-with open('config.json', 'w') as f:
-    f.write(json.dumps(config))
-
-# saving stats file
-with open('stats.json', 'w') as f:
-    f.write(json.dumps(stats))
-
 # saving plot
 X_combined_std = np.vstack((X_train_std, X_test_std))
 y_combined = np.hstack((y_train, y_test))
@@ -65,4 +56,4 @@ plt.legend(loc='upper left')
 plt.tight_layout()
 plt.savefig('plot.png', dpi=300)
 
-#datmo.snapshot.create(message="svm with linear", config=config, stats=stats)
+datmo.snapshot.create(message="svm with linear", config=config, stats=stats)
